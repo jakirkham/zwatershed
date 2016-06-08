@@ -28,7 +28,7 @@
 using namespace std;
 
 std::pair<double,double>
-compare_volumes(
+compare_volumes_arb(
                  volume<uint32_t>& gt,
                  volume<uint32_t>& ws, int dimX, int dimY, int dimZ ){
     double rand_split = 0;
@@ -39,25 +39,25 @@ compare_volumes(
 
     double total = 0;
     std::map<uint32_t, std::map<uint32_t, std::size_t>> p_ij;
-
     std::map<uint32_t, std::size_t> s_i, t_j;
 
-    for ( std::ptrdiff_t z = 0; z < dimZ; ++z )
+    for ( std::ptrdiff_t x = 0; x < dimX; ++x )
         for ( std::ptrdiff_t y = 0; y < dimY; ++y )
-            for ( std::ptrdiff_t x = 0; x < dimX; ++x )
+            for ( std::ptrdiff_t z = 0; z < dimZ; ++z )
             {
+                //cout << "x,y,z" << x<<","<<y<<","<<z<<endl;
                 uint32_t wsv = ws[x][y][z];
                 uint32_t gtv = gt[x][y][z];
 
                 if ( gtv )
                 {
                     ++total;
-
                     ++p_ij[gtv][wsv];
                     ++s_i[wsv];
                     ++t_j[gtv];
                 }
             }
+
 
     double sum_p_ij = 0;
     for ( auto& a: p_ij )
@@ -88,14 +88,4 @@ compare_volumes(
     return std::make_pair(sum_p_ij/sum_t_k,
                           sum_p_ij/sum_s_k);
 }
-
-using namespace std;
-
-struct Vertex
-{
-    uint32_t first, second;
-    float value;
-};
-
-typedef vector<Vertex> VertexList;
 

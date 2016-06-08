@@ -77,7 +77,7 @@ inline void merge_segments_with_function( const volume_ptr<ID>& seg_ptr,
         seg_raw[idx] = remaps[sets.find_set(seg_raw[idx])];
     }
 
-    std::cout << "Done with remapping, total: " << (next_id-1) << std::endl;
+    std::cout << "\tDone with remapping, total: " << (next_id-1) << std::endl;
 
     region_graph<ID,F> new_rg;
 
@@ -102,6 +102,6 @@ inline void merge_segments_with_function( const volume_ptr<ID>& seg_ptr,
     if(recreate_rg)
         rg.swap(new_rg);
 
-    std::cout << "Done with updating the region graph, size: "
+    std::cout << "\tDone with updating the region graph, size: "
               << rg.size() << std::endl;
 }
