@@ -62,8 +62,8 @@ def stitch_and_save(partition_data,outname):
     if op.isfile(outname):
         os.remove(outname)
     f = h5py.File(outname, 'a')
-#     dset_seg = f.create_dataset('seg', dims, dtype='uint64', chunks=True)
-    dset_seg = f.create_dataset('seg', (110,220,220), dtype='uint64', chunks=True)
+    dset_seg = f.create_dataset('seg', dims, dtype='uint64', chunks=True)
+    # dset_seg = f.create_dataset('seg', (110,220,220), dtype='uint64', chunks=True)
     inc,re,merges,rgs,i_arr=0,{},{},{},[]
 
     # calc all merges, set dset_seg, rg with incrementing
