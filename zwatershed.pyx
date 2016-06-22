@@ -43,8 +43,27 @@ def zwatershed_h5_arb(seg_shape, node1, node2, edgeWeight, save_threshes, seg_sa
     save_threshes.sort()
     return zwshed_no_stats_arb(seg_shape, node1, node2, edgeWeight, save_threshes, save_threshes, h5=1,
                                seg_save_path=seg_save_path)
+                               
+def zwatershed_basic_h5(affs, seg_save_path):
+    zwatershed_basic_h5(affs, seg_save_path=seg_save_path)
 
 #-------------- helper methods --------------------------------------------------------------
+def zwatershed_basic_h5(np.ndarray[np.float32_t, ndim=4] affs, seg_save_path="NULL/"):
+    makedirs(seg_save_path)
+
+    # get initial seg,rg
+    affs = np.asfortranarray(np.transpose(affs, (1, 2, 3, 0)))
+    dims = affs.shape
+    seg_empty = np.empty((dims[0], dims[1], dims[2]), dtype='uint32')
+    map = zwshed_initial(seg_empty, affs)
+    counts = map['counts']
+    rg = map['rg']
+    f = h5py.File(seg_save_path + 'basic.h5', 'w')
+    f["seg"] = seg = np.array(map['seg'], dtype='uint32').reshape((dims[2], dims[1], dims[0])).transpose(2, 1, 0)
+    f["counts"]=counts
+    f["rg"]=rg
+    f.close()
+
 def zwshed_with_stats(np.ndarray[uint32_t, ndim=3] gt, np.ndarray[np.float32_t, ndim=4] affs, threshes, save_threshes,
                       int h5, seg_save_path="NULL/"):
     if h5:

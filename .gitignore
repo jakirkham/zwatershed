@@ -2,4 +2,4 @@ build
 *.c
 *.so
 zwatershed.cpp
-
+*.pyc

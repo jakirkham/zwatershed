@@ -85,8 +85,6 @@ watershed( const affinity_graph_ptr<F>& aff_ptr, const L& lowv, const H& highv )
         }
     }
 
-    std::cout << "\tnum corners " << bfs.size() << std::endl;
-
     // divide the plateaus
 
     std::size_t bfs_index = 0;
@@ -185,7 +183,7 @@ watershed( const affinity_graph_ptr<F>& aff_ptr, const L& lowv, const H& highv )
         }
     }
 
-    std::cout << "\tfound: " << (next_id-1) << " components\n";
+    std::cout << "found: " << (next_id-1) << " components\n";
 
     for ( std::ptrdiff_t idx = 0; idx < size; ++idx )
     {
