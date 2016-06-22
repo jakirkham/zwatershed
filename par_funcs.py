@@ -3,6 +3,7 @@ import h5py
 from zwatershed import *
 import os.path as op
 from itertools import product
+from multiprocessing import Pool
 
 ######################      partition subvols     ######################
 
