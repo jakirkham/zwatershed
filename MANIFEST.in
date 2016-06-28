@@ -1,4 +1,4 @@
-iclude README.md
+include README.md
 include make.sh
 recursive-include zwatershed *.hpp
 recursive-include zwatershed *.pyx
