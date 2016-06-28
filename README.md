@@ -1,8 +1,18 @@
 # convolutional network metric scripts
 - Code is based around code from https://bitbucket.org/poozh/watershed described in http://arxiv.org/abs/1505.00249.  For use in https://github.com/naibaf7/PyGreentea. 
 
-# building cython
+# building
+### pip
+- `pip install zwatershed`
+
+### from source
+- clone the repository
 - run ./make.sh
+
+### requirements
+- numpy, h5py, cython
+- if using parallel watershed, also requires multiprocessing or pyspark
+- in order to build the cython, requires a c++ compiler
 
 # function api
 - `(segs, rand) = zwatershed_and_metrics(segTrue, aff_graph, eval_thresh_list, seg_save_thresh_list)`

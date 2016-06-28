@@ -7,5 +7,6 @@ setup(name='zwatershed',
       author='Chandan Singh',
       author_email='csinva@virginia.edu',
       license='MIT',
+      install_requires=['cython','numpy','h5py'],	
       packages=['zwatershed'],
       zip_safe=False)

@@ -3,7 +3,6 @@ import h5py
 from zwatershed import *
 import os.path as op
 from itertools import product
-from multiprocessing import Pool
 
 ######################      partition subvols     ######################
 
@@ -42,6 +41,7 @@ def zwshed_h5_par(arg):
     print "finished",seg_save_path,"watershed"
 
 def eval_with_par_map(args,num_workers):
+	from multiprocessing import Pool
     p = Pool(num_workers)
     p.map(zwshed_h5_par, args)
     
