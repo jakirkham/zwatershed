@@ -3,3 +3,7 @@ build
 *.so
 zwatershed.cpp
 *.pyc
+*/build
+*/*.c
+*/*.so
+
