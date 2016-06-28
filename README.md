@@ -1,5 +1,5 @@
 # convolutional network metric scripts
-- Code is based around code from https://bitbucket.org/poozh/watershed described in http://arxiv.org/abs/1505.00249.  For use in https://github.com/naibaf7/PyGreentea. 
+- Code for fast watersheds. Code is based around code from https://bitbucket.org/poozh/watershed described in http://arxiv.org/abs/1505.00249.  For use in https://github.com/naibaf7/PyGreentea. 
 
 # building
 ### pip
@@ -31,19 +31,17 @@
 		- `len(segs) == len(seg_save_thresh_list)`
 
 ##### These methods have versions which save the segmentations to hdf5 files instead of returning them
-
 - `rand = zwatershed_and_metrics_h5(segTrue, aff_graph, eval_thresh_list, seg_save_thresh_list, seg_save_path)`
 - `zwatershed_h5(aff_graph, eval_thresh_list, seg_save_path)`
 
 ##### All 4 methods have versions which take an edgelist representation of the affinity graph
-
 - `(segs, rand) = zwatershed_and_metrics_arb(segTrue, node1, node2, edgeWeight, eval_thresh_list, seg_save_thresh_list)`
 - `segs = zwatershed_arb(seg_shape, node1, node2, edgeWeight, seg_save_thresh_list)`
 - `rand = zwatershed_and_metrics_h5_arb(segTrue, node1, node2, edgeWeight, eval_thresh_list, seg_save_thresh_list, seg_save_path)`
 - `zwatershed_h5_arb(seg_shape, node1, node2, edgeWeight, eval_thresh_list, seg_save_path)`
 
 # parallel watershed - 4 steps
-- *a full example is given in par_tests.ipynb*
+- *a full example is given in par_ex.ipynb*
 
 1. Partition the subvolumes
 	- `partition_data = partition_subvols(pred_file,out_folder,max_len)`
@@ -66,5 +64,3 @@
 4. Threshold individual subvolumes by merging
 	- `seg_merged = merge_by_thresh(seg,seg_sizes,rg,thresh)`
 		- load in these areguments from outname
-
-

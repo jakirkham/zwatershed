@@ -1,5 +1,5 @@
 from setuptools import setup
-
+import os
 setup(name='zwatershed',
       version='0.1',
       description='Fast watersheds',
@@ -10,3 +10,4 @@ setup(name='zwatershed',
       install_requires=['cython','numpy','h5py'],	
       packages=['zwatershed'],
       zip_safe=False)
+os.system('./make.sh')
