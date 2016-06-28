@@ -12,7 +12,7 @@
 ### requirements
 - numpy, h5py, cython
 - if using parallel watershed, also requires multiprocessing or pyspark
-- in order to build the cython, requires a c++ compiler
+- in order to build the cython, requires a c++ compiler and boost
 
 # function api
 - `(segs, rand) = zwatershed_and_metrics(segTrue, aff_graph, eval_thresh_list, seg_save_thresh_list)`
