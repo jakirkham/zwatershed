@@ -11,7 +11,7 @@ class build_ext(_build_ext):
         self.include_dirs.append(numpy.get_include())
 
 setup(name='zwatershed',
-      version='0.3',
+      version='0.4',
       description='Fast watersheds',
       url='https://github.com/TuragaLab/zwatershed',
       author='Chandan Singh',
@@ -31,4 +31,3 @@ setup(name='zwatershed',
                          extra_link_args=["-std=c++11"],
                          extra_compile_args=["-std=c++11", "-w"])],
       zip_safe=False)
-os.system('./make.sh')
