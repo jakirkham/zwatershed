@@ -6,7 +6,7 @@
 ### conda
 - `conda install -c conda-forge zwatershed`
 
-### pip [<img src="https://img.shields.io/pypi/v/nine.svg?maxAge=2592000">](https://pypi.python.org/pypi/zwatershed/)
+### pip [<img src="https://img.shields.io/pypi/v/zwatershed.svg?maxAge=2592000">](https://pypi.python.org/pypi/zwatershed/)
 - `pip install zwatershed`
 
 ### from source
