@@ -14,4 +14,5 @@ def setup_cython():
                          extra_compile_args=["-std=c++11", "-w"])]
 
 	setup(cmdclass={'build_ext': build_ext}, ext_modules=ext_modules)
-setup_cython()
+if __name__=='__main__':
+	setup_cython()
