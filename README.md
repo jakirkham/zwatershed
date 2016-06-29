@@ -2,6 +2,10 @@
 - Code for fast watersheds. Code is based around code from https://bitbucket.org/poozh/watershed described in http://arxiv.org/abs/1505.00249.  For use in https://github.com/naibaf7/PyGreentea. 
 
 # building 
+
+### conda
+- `conda install zwatershed`
+
 ### pip [<img src="https://img.shields.io/pypi/v/nine.svg?maxAge=2592000">](https://pypi.python.org/pypi/zwatershed/)
 - `pip install zwatershed`
 
